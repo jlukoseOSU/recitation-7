@@ -31,7 +31,11 @@ int iterative_digit_sum(int n) {
  * iterative_digit_sum() above, but recursively instead of iteratively.
  */
 int recursive_digit_sum(int n) {
-    return 0;
+    if (n == 0) {
+        return 0;
+    } else {
+        return (n % 10) + recursive_digit_sum(n / 10);
+    }
 }
 
 int main() {

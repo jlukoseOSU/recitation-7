@@ -29,6 +29,21 @@ int iterative_binary_search(int q, int* array, int n) {
   return -1;
 }
 
+int binary_search(int q, int* array, int low, int high) {
+    if (low > high) {
+        return -1;
+    }
+    
+    int mid = (low + high) / 2;
+    if (array[mid] == q) {
+        return mid;
+    } else if (array[mid] > q) {
+        return binary_search(q, array, low, mid-1);
+    } else {
+        return binary_search(q, array, mid+1, high);
+    }
+}
+
 /*
  * Implement this function so it *recursively* performs a binary search for
  * a query value q in an array of integers of size n.  Like the iterative
@@ -41,8 +56,9 @@ int iterative_binary_search(int q, int* array, int n) {
  * and to simply call that recursive function from this one.
  */
 int recursive_binary_search(int q, int* array, int n) {
-  return -1;
+    return binary_search(q, array, 0, n-1);
 }
+
 
 /*
  * This is a comparison function used with qsort() to sort the array of

@@ -25,7 +25,11 @@ int iterative_sum(int n) {
  * same thing as iterative_sum() above, but recursively instead of iteratively.
  */
 int recursive_sum(int n) {
-    return 0;
+    if (n <= 1) {
+        return 1;
+    } else {
+        return n + recursive_sum(n-1);
+    }
 }
 
 int main() {
